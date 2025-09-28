@@ -1,0 +1,48 @@
+* {
+    border: 2px solid red
+}
+
+.display {
+    width: 280px;
+    padding: 20px;
+    height: 50px;
+    border: 1px solid black;
+}
+
+.Row1st {
+    width: 320px;
+    /* padding: 20px; */
+    height: 80px;
+    display:flex;
+    flex-direction: row;
+}
+
+.Row2nd {
+    width: 320px;
+    /* padding: 20px; */
+    height: 80px;
+    display:flex;
+    flex-direction: row;
+}
+
+.Row3rd {
+    width: 320px;
+    /* padding: 20px; */
+    height: 80px;
+    display:flex;
+    flex-direction: row;
+}
+
+.Row4th {
+    width: 320px;
+    /* padding: 20px; */
+    height: 80px;
+    display:flex;
+    flex-direction: row;
+}
+
+.btnStandard {
+    width: 80px;
+    height: 80px;
+    border: 1px solid black;
+}
