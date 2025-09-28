@@ -2,6 +2,11 @@ let elem1 = "0";
 let MainOperator = "";
 let elem2 = "0";
 
+let StoredVal1 = "";
+let StoredVal2 = "";
+let CalcState = 0;
+/*  state 0: Enter first Number
+    state 1: Enter 2nd Number*/
 
 function add (a,b) {
     return a + b
@@ -235,7 +240,19 @@ function updateDisplay(content) {
             break;
         
         case "+":
-            
+            StoredVal1 = elem1;
+            CalcState = 1; //store 1st number and get 2nd number
+            MainDisplay.textContent = elem1;
+            elem1 = "0"
+            break;
+
+        case "=":
+            StoredVal2 = elem1;
+            elem1 = String(add(parseInt(StoredVal1), parseInt(StoredVal2)))
+            CalcState = 0; //get back to 1st state
+            MainDisplay.textContent = elem1;
+            elem1 = "0"
+            break;
 
         default:
             break;
