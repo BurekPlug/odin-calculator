@@ -1,6 +1,6 @@
-let elem1 = 0;
-let MainOperator = "+";
-let elem2 = 0;
+let elem1 = "0";
+let MainOperator = "";
+let elem2 = "0";
 
 
 function add (a,b) {
@@ -48,6 +48,7 @@ function generateCalcGUI () {
     DisplDiv.classList.add("DisplDiv");
     document.documentElement.appendChild(DisplDiv);
     DisplDiv.setAttribute("class", "display");
+    DisplDiv.setAttribute("id", "MainDisplay");
 
     // fill the Display
     DisplDiv.textContent = "571";
@@ -183,4 +184,60 @@ function generateCalcGUI () {
     Btn0.setAttribute("class", "btnStandard");
 }
 
+/*  Initalize GUI */
 generateCalcGUI();
+
+/* display reaction */
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => updateDisplay(button.textContent));
+});
+
+function updateDisplay(content) {
+    const DisplDiv = document.querySelector("#MainDisplay");
+
+    switch (content) {
+        case "1":
+        case "2":
+        case "3":
+        case "4":
+        case "5":
+        case "6":
+        case "7":
+        case "8":
+        case "9":
+            if (elem1[0] == "0") {
+                elem1 = content;
+            }
+            else if(elem1.length < 10) {
+                elem1 += content;
+            }
+            else {}
+            MainDisplay.textContent = elem1;
+            break;
+        
+        case "0":
+            if(elem1.length < 10 && elem1.length != 0 && elem1[0] != "0") {
+                elem1 += content;
+            }
+            else if (elem1 == "0") {
+                elem1 = "0"
+            }
+            else {}
+
+            MainDisplay.textContent = elem1;
+            break;
+        
+        case "clear":
+            elem1 = "0";
+            MainDisplay.textContent = elem1;
+            break;
+        
+        case "+":
+            
+
+        default:
+            break;
+    }
+}
