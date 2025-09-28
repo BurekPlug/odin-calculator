@@ -236,15 +236,28 @@ function updateDisplay(content) {
         
         case "clear":
             elem1 = "0";
+            StoredVal1 = "0";
+            StoredVal2 = "0";
             MainDisplay.textContent = elem1;
             break;
         
         case "+":
-            StoredVal1 = elem1;
-            CalcState = 1; //store 1st number and get 2nd number
-            MainDisplay.textContent = elem1;
-            elem1 = "0"
-            break;
+            if(CalcState == 0) {
+                StoredVal1 = elem1;
+                CalcState = 1; //store 1st number and get 2nd number
+                MainDisplay.textContent = elem1;
+                elem1 = "0";                
+                break;
+            }
+
+            if(CalcState == 1) {
+                StoredVal2 = MainDisplay.textContent;
+                elem1 = String(add(parseInt(StoredVal1), parseInt(StoredVal2)))
+                MainDisplay.textContent = elem1;
+                StoredVal1 = elem1;
+                elem1 = "0";   
+                break;
+            }
 
         case "=":
             StoredVal2 = elem1;
