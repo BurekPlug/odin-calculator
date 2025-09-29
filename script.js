@@ -205,6 +205,8 @@ function doOperation(oper) {
             return String(add(parseInt(StoredVal1), parseInt(StoredVal2)))
         case "-":
             return String(subtract(parseInt(StoredVal1), parseInt(StoredVal2)))
+        case "*":
+            return String(multiply(parseInt(StoredVal1), parseInt(StoredVal2)))
         default:
             break;
     }
@@ -288,6 +290,26 @@ function updateDisplay(content) {
             if(CalcState == 1) {
                 StoredVal2 = MainDisplay.textContent;
                 elem1 = String(subtract(parseInt(StoredVal1), parseInt(StoredVal2)))
+                MainDisplay.textContent = elem1;
+                StoredVal1 = elem1;
+                elem1 = "0";   
+                break;
+            }
+        
+        case "*":
+            /* This was just copied from "+"- case. This has to be fixed. */
+            LastOperator = "*";
+            if(CalcState == 0) {
+                StoredVal1 = elem1;
+                CalcState = 1; //store 1st number and get 2nd number
+                MainDisplay.textContent = elem1;
+                elem1 = "0";                
+                break;
+            }
+
+            if(CalcState == 1) {
+                StoredVal2 = MainDisplay.textContent;
+                elem1 = String(multiply(parseInt(StoredVal1), parseInt(StoredVal2)))
                 MainDisplay.textContent = elem1;
                 StoredVal1 = elem1;
                 elem1 = "0";   
