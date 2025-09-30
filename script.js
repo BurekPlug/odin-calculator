@@ -5,6 +5,7 @@ let elem2 = "0";
 let StoredVal1 = "";
 let StoredVal2 = "";
 let CalcState = 0;
+let operatorPressed = false;
 /*  state 0: Enter first Number
     state 1: Enter 2nd Number*/
 
@@ -269,6 +270,7 @@ function updateDisplay(content) {
                 LastOperator = "+";               
                 break;
             }
+            
 
             if(CalcState == 1) {
                 StoredVal2 = MainDisplay.textContent;
@@ -356,10 +358,12 @@ function updateDisplay(content) {
                 }
                 break;
             }
+            
             StoredVal2 = elem1;
             elem1 = doOperation(LastOperator);
             StoredVal1 = elem1;
             MainDisplay.textContent = elem1;
+            elem1 = "";
             CalcState = 0;
             break;
 
