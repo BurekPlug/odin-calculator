@@ -260,81 +260,89 @@ function updateDisplay(content) {
             break;
         
         case "+":
-            LastOperator = "+";
+            
             if(CalcState == 0) {
                 StoredVal1 = elem1;
                 CalcState = 1; //store 1st number and get 2nd number
                 MainDisplay.textContent = elem1;
-                elem1 = "0";                
+                elem1 = "0"; 
+                LastOperator = "+";               
                 break;
             }
 
             if(CalcState == 1) {
                 StoredVal2 = MainDisplay.textContent;
-                elem1 = String(add(parseInt(StoredVal1), parseInt(StoredVal2)))
+                elem1 = doOperation(LastOperator);
                 MainDisplay.textContent = elem1;
                 StoredVal1 = elem1;
-                elem1 = "0";   
+                elem1 = "0";
+                LastOperator = "+";   
                 break;
             }
         
         case "-":
             /* This was just copied from "+"- case. This has to be fixed. */
-            LastOperator = "-";
+            
             if(CalcState == 0) {
                 StoredVal1 = elem1;
                 CalcState = 1; //store 1st number and get 2nd number
                 MainDisplay.textContent = elem1;
-                elem1 = "0";                
+                elem1 = "0";
+                LastOperator = "-";                
                 break;
             }
 
             if(CalcState == 1) {
                 StoredVal2 = MainDisplay.textContent;
-                elem1 = String(subtract(parseInt(StoredVal1), parseInt(StoredVal2)))
+                elem1 = doOperation(LastOperator);
                 MainDisplay.textContent = elem1;
                 StoredVal1 = elem1;
-                elem1 = "0";   
+                elem1 = "0";
+                LastOperator = "-";   
                 break;
             }
         
         case "*":
             /* This was just copied from "+"- case. This has to be fixed. */
-            LastOperator = "*";
+            
             if(CalcState == 0) {
                 StoredVal1 = elem1;
                 CalcState = 1; //store 1st number and get 2nd number
                 MainDisplay.textContent = elem1;
-                elem1 = "0";                
+                elem1 = "0";
+                LastOperator = "*";                
                 break;
             }
 
             if(CalcState == 1) {
                 StoredVal2 = MainDisplay.textContent;
-                elem1 = String(multiply(parseInt(StoredVal1), parseInt(StoredVal2)))
+                elem1 = doOperation(LastOperator);
                 MainDisplay.textContent = elem1;
                 StoredVal1 = elem1;
                 elem1 = "0";   
+                LastOperator = "*";
                 break;
             }
         
         case "/":
             /* This was just copied from "+"- case. This has to be fixed. */
-            LastOperator = "/";
+            
             if(CalcState == 0) {
                 StoredVal1 = elem1;
                 CalcState = 1; //store 1st number and get 2nd number
                 MainDisplay.textContent = elem1;
-                elem1 = "0";                
+                elem1 = "0";
+                LastOperator = "/";                
                 break;
             }
 
             if(CalcState == 1) {
                 StoredVal2 = MainDisplay.textContent;
-                elem1 = String(divide(parseInt(StoredVal1), parseInt(StoredVal2)))
+                elem1 = doOperation(LastOperator);
                 MainDisplay.textContent = elem1;
                 StoredVal1 = elem1;
-                elem1 = "0";   
+                elem1 = "0";
+                LastOperator = "/";   
                 break;
             }
 
