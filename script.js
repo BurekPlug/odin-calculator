@@ -279,7 +279,10 @@ function updateDisplay(content) {
             }
 
             if(operatorPressed == true)
-            {break;}
+            {
+                LastOperator = "+";
+                break;
+            }
 
             if(CalcState == 1) {
                 StoredVal2 = MainDisplay.textContent;
@@ -305,7 +308,10 @@ function updateDisplay(content) {
             }
 
             if(operatorPressed == true)
-            {break;}
+            {
+                LastOperator = "-";
+                break;
+            }
 
             if(CalcState == 1) {
                 StoredVal2 = MainDisplay.textContent;
@@ -331,7 +337,10 @@ function updateDisplay(content) {
             }
 
             if(operatorPressed == true)
-            {break;}
+            {
+                LastOperator = "*";
+                break;
+            }
 
             if(CalcState == 1) {
                 StoredVal2 = MainDisplay.textContent;
@@ -357,7 +366,10 @@ function updateDisplay(content) {
             }
 
             if(operatorPressed == true)
-            {break;}
+            {
+                LastOperator = "/";
+                break;
+            }
 
             if(CalcState == 1) {
                 StoredVal2 = MainDisplay.textContent;
