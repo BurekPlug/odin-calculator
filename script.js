@@ -25,7 +25,11 @@ function divide (a,b) {
     if (b != 0)
     {
         return a/b;
-    }   
+    }
+    else
+        {
+            return "ERROR"
+        }   
 }
 
 function operate () {
@@ -237,6 +241,7 @@ function updateDisplay(content) {
             }
             else {}
             MainDisplay.textContent = elem1;
+            operatorPressed = false;
             break;
         
         case "0":
@@ -249,6 +254,7 @@ function updateDisplay(content) {
             else {}
 
             MainDisplay.textContent = elem1;
+            operatorPressed = false;
             break;
         
         case "clear":
@@ -267,10 +273,13 @@ function updateDisplay(content) {
                 CalcState = 1; //store 1st number and get 2nd number
                 MainDisplay.textContent = elem1;
                 elem1 = "0"; 
-                LastOperator = "+";               
+                LastOperator = "+";
+                operatorPressed = true;               
                 break;
             }
-            
+
+            if(operatorPressed == true)
+            {break;}
 
             if(CalcState == 1) {
                 StoredVal2 = MainDisplay.textContent;
@@ -291,8 +300,12 @@ function updateDisplay(content) {
                 MainDisplay.textContent = elem1;
                 elem1 = "0";
                 LastOperator = "-";                
+                operatorPressed = true;   
                 break;
             }
+
+            if(operatorPressed == true)
+            {break;}
 
             if(CalcState == 1) {
                 StoredVal2 = MainDisplay.textContent;
@@ -312,9 +325,13 @@ function updateDisplay(content) {
                 CalcState = 1; //store 1st number and get 2nd number
                 MainDisplay.textContent = elem1;
                 elem1 = "0";
-                LastOperator = "*";                
+                LastOperator = "*";     
+                operatorPressed = true;              
                 break;
             }
+
+            if(operatorPressed == true)
+            {break;}
 
             if(CalcState == 1) {
                 StoredVal2 = MainDisplay.textContent;
@@ -334,9 +351,13 @@ function updateDisplay(content) {
                 CalcState = 1; //store 1st number and get 2nd number
                 MainDisplay.textContent = elem1;
                 elem1 = "0";
-                LastOperator = "/";                
+                LastOperator = "/";   
+                operatorPressed = true;             
                 break;
             }
+
+            if(operatorPressed == true)
+            {break;}
 
             if(CalcState == 1) {
                 StoredVal2 = MainDisplay.textContent;
